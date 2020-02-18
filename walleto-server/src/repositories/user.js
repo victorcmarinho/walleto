@@ -86,6 +86,18 @@ class UserRepository {
       return err
     }
   }
+
+  async removeCash(id, total) {
+    try {
+      const response = await this.schema.update({ _id: id}, { depositedMoney: total })
+
+      return response
+    }
+    catch (err) {
+      console.error(`[UserRepository - addBankCard] ${err.message}`)
+      return err
+    }
+  }
 }
 
 export default UserRepository

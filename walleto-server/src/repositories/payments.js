@@ -14,7 +14,20 @@ class PaymentRepository {
 
       return response
     } catch (err) {
-      console.error(`[UserRepository - sign] ${err.message}`)
+      console.error(`[PaymentRepository - addBillToUser] ${err.message}`)
+      return err
+    }
+  }
+
+  async payBillByBillet(payment) {
+    try {
+      const model = new this.schema(payment)
+
+      const response = await this.schema.create(model)
+
+      return response
+    } catch (err) {
+      console.error(`[PaymentRepository - addBillToUser] ${err.message}`)
       return err
     }
   }

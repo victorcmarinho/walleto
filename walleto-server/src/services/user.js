@@ -94,6 +94,7 @@ function mountErrorNotExistsUser() {
     message: 'Usuário não cadastrado'
   }
 }
+
 function mountErrorExistsUser() {
   return {
     code: 400,

@@ -6,7 +6,7 @@ import { userRepository, billsRepository, paymentRepository } from '../repositor
 
 const userService = new UserService(userRepository)
 const billsService = new BillsService(billsRepository, userRepository)
-const paymentService = new PaymentService(paymentRepository, userRepository)
+const paymentService = new PaymentService(paymentRepository, userRepository, billsRepository)
 
 export {
     userService,

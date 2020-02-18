@@ -18,35 +18,26 @@ class BillsRepository {
       return err
     }
   }
-
-
-  async sendBillsToUser (body) {
-    try {
-      let sendedToUser = {
-        sended: [],
-        notSended: []
-      }
   
-      if (body.length > 0) {
-        body.forEach(async bill => {
-          const existsUser = await getUser(bill.cnpj)
+  async findBillsToPay(user, bills) {
+    try {
+      const response = await this.schema.find({ user: user, _id: { '$in': bills } })
 
-          if (existsUser.length > 0) {
-            let bill = mountBillToUser(bill, existsUser[0].id)
-            sendedToUser.sended.push(await this.paymentRepository.addBillToUser(bill))
-          }
-          else {
-            sendedToUser.sended.push(mountDontSendedBill(bill))
-          }
-        })
-      }
-      else {
-        return Response.Error(mountErrorNotExistsBills())
-      }
+      return response
+    } catch (err) {
+      console.error(`[BillsRepository - createUnpaidBill] ${err.message}`)
+      return err
     }
-    catch (error) {
-      console.error(`[PaymentsService - sendBillsToUser] ${error.message}`)
-      return Response.Error(error)
+  }
+
+  async editPaidBillsByCode(bill) {
+    try {
+      const response = await this.schema.update({ _id: bill }, { paidOut: true, paidOutDate: Date.now })
+
+      return response
+    } catch (err) {
+      console.error(`[BillsRepository - editPaidBillsByCode] ${err.message}`)
+      return err
     }
   }
 }

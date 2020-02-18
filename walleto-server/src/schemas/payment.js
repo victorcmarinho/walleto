@@ -21,7 +21,7 @@ const paymentSchema = Schema({
     paidWithBankCard: { type: Boolean, required: false }
   },
   amount: { type: Number, required: true },
-  discount: { type: Number, required: true },
+  cashback: { type: Number, required: true },
   paidOut: { type: Boolean, required: true },
   paidOutDate: { type: Date, required: true },
   creationDate: { type: Date, required: false, default: Date.now }
