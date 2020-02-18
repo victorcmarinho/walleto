@@ -1,0 +1,36 @@
+.container {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+  background-color: #526C5B;
+}
+img {
+  height: auto;
+  width: auto;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: #BEC5C0;
+  border-radius: 4px;
+  padding: 16px;
+
+  mat-icon{
+    color: white;
+  }
+
+  .submit {
+    border-radius: 24px;
+    border-color: white;
+    background-color: rgba(0,0,0,0);
+    color: white;
+    height: 44px;
+    width: 100%;
+    border-image: none;
+    border-style: double;
+  }
+
+}
+

@@ -1,0 +1,16 @@
+.container-structure {
+  display: grid;
+  grid-template-columns: 375px 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "sidebar main";
+  height: 100%;
+  background-color: #BEC5C0;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.main {
+  grid-area: main;
+}
