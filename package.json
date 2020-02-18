@@ -1,0 +1,50 @@
+{
+  "name": "walleto-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rmdir -rf build && mkdir build",
+    "build-babel": "babel -d ./build ./src -s",
+    "build": " npm run build-babel",
+    "start": " npm i && npm i -g babel-cli babel-core babel-loader && npm run build && node ./build/server.js",
+    "dev": "nodemon --exec babel-node ./src/server.js"
+  },
+  "keywords": [
+    "walleto",
+    "server",
+    "nodejs",
+    "heroku"
+  ],
+  "repository": {
+    "url": "https://github.com/victorcmarinho/walleto/tree/master/walleto-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "dotenv-safe": "^8.2.0",
+    "email-validator": "^2.0.4",
+    "express": "^4.17.1",
+    "helmet": "^3.21.2",
+    "mongoose": "^5.9.1",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "nodemon": "^2.0.2",
+    "babel-plugin-transform-builtin-extend": "^1.1.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1"
+  },
+  "engines": {
+    "node": "12.x"
+  }
+}
