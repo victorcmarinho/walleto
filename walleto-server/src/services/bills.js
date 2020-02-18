@@ -1,18 +1,18 @@
 import { Response } from '../helpers'
 
 class BillsService {
-  constructor (billsRepository, userRepository) {
+  constructor(billsRepository, userRepository) {
     this.billsRepository = billsRepository
     this.userRepository = userRepository
   }
 
-  async getAllBills (id, skip, limit) {
+  async getAllBills(id, skip, limit) {
     try {
       const bills = await this.billsRepository.getAllBills(id, skip, limit)
-    
+
       if (bills.length > 0)
         return Response.Created(bills, 'Contas cadastradas')
-      else 
+      else
         return Response.Error(mountError())
     }
     catch (error) {
@@ -21,13 +21,13 @@ class BillsService {
     }
   }
 
-  async getBillsByStatusOfPayment (user, paidOut, skip, limit) {
+  async getBillsByStatusOfPayment(user, paidOut, skip, limit) {
     try {
       const bills = await this.billsRepository.getBillsByStatusOfPayment(user, paidOut, skip, limit)
-  
+
       if (bills.length > 0)
         return Response.Created(bills, 'Contas cadastradas')
-      else 
+      else
         return Response.Error(mountError())
     }
     catch (error) {
@@ -36,13 +36,13 @@ class BillsService {
     }
   }
 
-  async createUnpaidBill (body) {
+  async createUnpaidBill(body) {
     try {
       const data = mountBillToUser(body)
-      
+
       const existsUser = await this.userRepository.findUserById(data.user)
-      
-      if (existsUser.length == 0) 
+
+      if (existsUser.length == 0)
         return Response.Error(mountErrorExistsUser())
 
       const result = await this.billsRepository.createUnpaidBill(data)
@@ -54,13 +54,13 @@ class BillsService {
     }
   }
 
-  async sendBillsToUser (body) {
+  async sendBillsToUser(body) {
     try {
       let sendedToUser = {
         sended: [],
         notSended: []
       }
-  
+
       if (body.length > 0) {
         body.forEach(async bill => {
           const existsUser = await getUser(bill.cnpj)
@@ -135,7 +135,7 @@ function mountDontSendedBill(bill) {
   }
 }
 
-function mountBodyToModel (data) {
+function mountBodyToModel(data) {
   let result = {
     user: data.user,
     name: data.name,

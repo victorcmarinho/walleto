@@ -2,29 +2,29 @@ import mongoose from 'mongoose'
 import { Response, EmailValidator } from '../helpers'
 
 class UserService {
-  constructor (userRepository) {
+  constructor(userRepository) {
     this.userRepository = userRepository
   }
 
-  async login (email, password) {
+  async login(email, password) {
     if (!EmailValidator(email))
       return Response.Error(mountErrorInvalidEmail())
 
     const existsUser = await this.userRepository.login(email, password)
-  
+
     if (existsUser.length > 0)
-      return Response.Created({ logado: true }, 'Usuário logado com sucesso')
-    else 
+      return Response.Created({ logado: true, user: existsUser }, 'Usuário logado com sucesso')
+    else
       return Response.Error(mountErrorWrongPassword())
   }
 
-  async sign (body) {
+  async sign(body) {
     try {
       const data = mountBodyToModel(body)
-      
+
       const existsUser = await this.userRepository.findUserByEmail(data.email)
-      
-      if (existsUser.length > 0) 
+
+      if (existsUser.length > 0)
         return Response.Error(mountErrorExistsUser())
 
       const result = await this.userRepository.sign(data)
@@ -39,12 +39,12 @@ class UserService {
   async addBankCard(body) {
     try {
       const data = mountBodyToModelBankCard(body)
-      
+
       const existsUser = await this.userRepository.findUserById(body.id)
-      
+
       if (existsUser.length > 0) {
         let existsCard = bankCardExists(existsUser.bankCards, data.cardNumber)
-        
+
         if (existsCard)
           return Response.Error(mountErrorExistsCard())
 
@@ -65,7 +65,7 @@ class UserService {
   async deleteBankCard(user, id) {
     try {
       const existsUser = await this.userRepository.findUserById(user)
-      
+
       if (existsUser.length > 0) {
         const result = await this.userRepository.deleteBankCard(id)
 
@@ -126,7 +126,7 @@ function bankCardExists(bankCards, cardNumber) {
   });
 }
 
-function mountBodyToModelBankCard (data) {
+function mountBodyToModelBankCard(data) {
   return {
     card: new mongoose.mongo.ObjectId(),
     name: data.name,
@@ -138,7 +138,7 @@ function mountBodyToModelBankCard (data) {
   }
 }
 
-function mountBodyToModel (data) {
+function mountBodyToModel(data) {
   let result = {
     name: data.name,
     cpf: data.cpf,
