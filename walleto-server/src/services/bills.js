@@ -6,9 +6,9 @@ class BillsService {
     this.userRepository = userRepository
   }
 
-  async getAllBills (skip, limit) {
+  async getAllBills (id, skip, limit) {
     try {
-      const bills = await this.billsRepository.getAllBills(email, password).skip(skip).limit(limit)
+      const bills = await this.billsRepository.getAllBills(id, skip, limit)
     
       if (bills.length > 0)
         return Response.Created(bills, 'Contas cadastradas')
@@ -23,7 +23,7 @@ class BillsService {
 
   async getBillsByStatusOfPayment (paidOut, skip, limit) {
     try {
-      const bills = await this.billsRepository.getBillsByStatusOfPayment({ paidOut }).skip(skip).limit(limit)
+      const bills = await this.billsRepository.getBillsByStatusOfPayment(paidOut, skip, limit)
   
       if (bills.length > 0)
         return Response.Created(bills, 'Contas cadastradas')

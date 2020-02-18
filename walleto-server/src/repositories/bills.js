@@ -40,6 +40,30 @@ class BillsRepository {
       return err
     }
   }
+
+  async getBillsByStatusOfPayment(paidOut, skip, limit) {
+    try {
+      const response = await this.schema.find({ paidOut }).skip(skip).limit(limit)
+
+      return response
+    }
+    catch (err) {
+      console.error(`[BillsRepository - getBillsByStatusOfPayment] ${err.message}`)
+      return err
+    }
+  }
+
+  async getAllBills (id, skip, limit) {
+    try {
+      const response = await this.schema.find({ user: id }).skip(skip).limit(limit)
+
+      return response
+    }
+    catch (err) {
+      console.error(`[BillsRepository - getAllBills] ${err.message}`)
+      return err
+    }
+  }
 }
 
 export default BillsRepository

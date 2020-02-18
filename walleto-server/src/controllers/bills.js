@@ -2,9 +2,9 @@ import { billsService } from '../services'
 
 export async function getAllBills (req, res, next) {
   try {
-    const { skip, limit } = req.query
+    const { user, skip, limit } = req.query
 
-    const result = await billsService.getAllBills(skip, limit)
+    const result = await billsService.getAllBills(user, skip, limit)
 
     res.status(200).send(result)
   } catch (error) {
