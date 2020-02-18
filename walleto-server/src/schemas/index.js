@@ -1,9 +1,9 @@
 import userSchema from './user'
 import billSchema from './bills'
-import orderSchema from './order'
+import paymentSchema from './payment'
 
 export {
     userSchema,
     billSchema,
-    orderSchema
+    paymentSchema
 }

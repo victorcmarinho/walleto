@@ -1,3 +1,5 @@
+import { paymentService } from '../services'
+
 export async function generateBillet (req, res, next) {
   try {
     const { email, password } = req.body

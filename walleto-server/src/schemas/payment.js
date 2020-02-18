@@ -3,16 +3,16 @@ import config from '../configurations'
 
 const Schema = mongoose.Schema
 
-const orderSchema = Schema({
-  user: { type: Schema.Types.ObjectId, ref: 'Users', required: true },
-  bills: [{ type: Schema.Types.ObjectId, ref: 'Orders', required: true }],
+const paymentSchema = Schema({
+  user: { type: Schema.Types.ObjectId, ref: 'users', required: true },
+  bills: [{ type: Schema.Types.ObjectId, ref: 'bills', required: true }],
   billetInfo: { 
     billet: { type: String, required: false },
     code: { type: String, required: false },
     value: { type: String, required: false },
     purchaseInterest: { type: Number, required: false },
     interestFrom: { type: Number, required: false },
-    paidWithBillet: { type: Boolean, required: false }
+    paidWithBillet: { type: Boolean, required: false, default: false }
   },
   bankCard: {
     value: { type: String, required: false },
@@ -27,6 +27,6 @@ const orderSchema = Schema({
   creationDate: { type: Date, required: false, default: Date.now }
 })
 
-const OrderSchema = mongoose.model(config.PaymentsCollection, orderSchema)
+const PaymentSchema = mongoose.model(config.PaymentsCollection, paymentSchema)
 
-export default OrderSchema
+export default PaymentSchema

@@ -52,9 +52,32 @@ class UserRepository {
     }
   }
 
+  async findUserByCpf(cpf) {
+    try {
+      const response = await this.schema.find({ cpf })
+      
+      return response
+    } catch (err) {
+      console.error(`[UserRepository - findUserByEmail] ${err.message}`)
+      return err
+    }
+  }
+
   async addBankCard(data, id) {
     try {
       const response = await this.schema.update({ _id: id}, data)
+
+      return response
+    }
+    catch (err) {
+      console.error(`[UserRepository - addBankCard] ${err.message}`)
+      return err
+    }
+  }
+
+  async deleteBankCard(cardId, id) {
+    try {
+      const response = await this.schema.update({ _id: id}, { '$pull': { cardId }})
 
       return response
     }

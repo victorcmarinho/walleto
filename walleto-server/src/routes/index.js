@@ -1,4 +1,4 @@
-import { sign, login, getAllBills, addBankCard, deleteBankCard, getBillsByStatusOfPayment, createUnpaidBill } from '../controllers'
+import { sign, login, getAllBills, addBankCard, deleteBankCard, getBillsByStatusOfPayment, createUnpaidBill, sendBillsToUser } from '../controllers'
 
 function setupRoutes(app) {
   app.get('/', (req, res, next) => res.status(200).send({ Rota: 'Bem vindo ao servidor do Walleto' }))
@@ -9,6 +9,7 @@ function setupRoutes(app) {
   app.get('/bills/getAllBills', getAllBills)
   app.get('/bills/getBillsByStatusOfPayment', getBillsByStatusOfPayment)
   app.post('/bills/createUnpaidBill', createUnpaidBill)
+  app.post('/bills/sendBillsToUser', sendBillsToUser)
 }
 
 export default setupRoutes

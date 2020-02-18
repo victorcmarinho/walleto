@@ -1,5 +1,5 @@
 import { sign, login, addBankCard, deleteBankCard } from './users'
-import { getAllBills, getBillsByStatusOfPayment, createUnpaidBill } from './bills'
+import { getAllBills, getBillsByStatusOfPayment, createUnpaidBill, sendBillsToUser } from './bills'
 
 export {
   sign,
@@ -8,5 +8,6 @@ export {
   deleteBankCard,
   getAllBills,
   getBillsByStatusOfPayment,
-  createUnpaidBill
+  createUnpaidBill,
+  sendBillsToUser
 }

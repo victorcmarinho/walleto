@@ -24,7 +24,7 @@ class Configs {
   }
 
   get PaymentsCollection () {
-    return process.env.DB_GAME_COLLECTION || 'orders'
+    return process.env.DB_GAME_COLLECTION || 'payments'
   }
 }
 export default new Configs()
