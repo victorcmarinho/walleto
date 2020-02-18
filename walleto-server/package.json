@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clean": "rm -rf build && mkdir build",
+    "clean": "rmdir -rf build && mkdir build",
     "build-babel": "babel -d ./build ./src -s",
-    "build": "npm run clean && npm run build-babel",
-    "start": "npm run build && node ./build/server.js",
+    "build": " npm run build-babel",
+    "start": " npm i && npm i -g babel-cli babel-core babel-loader && npm run build && node ./build/server.js",
     "dev": "nodemon --exec babel-node ./src/server.js"
   },
   "keywords": [
