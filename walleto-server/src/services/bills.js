@@ -67,7 +67,7 @@ class BillsService {
 
           if (existsUser.length > 0) {
             let bill = mountBillToUser(bill, existsUser[0].id)
-            sendedToUser.sended.push(await this.paymentRepository.addBillToUser(bill))
+            sendedToUser.sended.push(await this.billsRepository.addBillToUser(bill))
           }
           else {
             sendedToUser.sended.push(mountDontSendedBill(bill))
@@ -112,7 +112,6 @@ function mountBillToUser(data, user) {
       billet: data.billetInfo.billet,
       code: data.billetInfo.code,
       value: data.billetInfo.value,
-      number: data.billetInfo.number,
       paymentSlip: data.billetInfo.paymentSlip,
       bankName: data.billetInfo.bankName
     },

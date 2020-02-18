@@ -65,6 +65,19 @@ class BillsRepository {
       return err
     }
   }
+
+  async addBillToUser(bill) {
+    try {
+      const model = new this.schema(bill)
+
+      const response = await this.schema.create(model)
+
+      return response
+    } catch (err) {
+      console.error(`[PaymentRepository - addBillToUser] ${err.message}`)
+      return err
+    }
+  }
 }
 
 export default BillsRepository
