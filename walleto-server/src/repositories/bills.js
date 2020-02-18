@@ -41,9 +41,9 @@ class BillsRepository {
     }
   }
 
-  async getBillsByStatusOfPayment(paidOut, skip, limit) {
+  async getBillsByStatusOfPayment(user, paidOut, skip, limit) {
     try {
-      const response = await this.schema.find({ paidOut }).skip(skip).limit(limit)
+      const response = await this.schema.find({ user, paidOut }).skip(skip).limit(limit)
 
       return response
     }

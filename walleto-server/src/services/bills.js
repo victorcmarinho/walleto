@@ -21,9 +21,9 @@ class BillsService {
     }
   }
 
-  async getBillsByStatusOfPayment (paidOut, skip, limit) {
+  async getBillsByStatusOfPayment (user, paidOut, skip, limit) {
     try {
-      const bills = await this.billsRepository.getBillsByStatusOfPayment(paidOut, skip, limit)
+      const bills = await this.billsRepository.getBillsByStatusOfPayment(user, paidOut, skip, limit)
   
       if (bills.length > 0)
         return Response.Created(bills, 'Contas cadastradas')

@@ -14,9 +14,9 @@ export async function getAllBills (req, res, next) {
 
 export async function getBillsByStatusOfPayment (req, res, next) {
   try {
-    const { paidOut, skip, limit } = req.query
+    const { user, paidOut, skip, limit } = req.query
 
-    const result = await billsService.getBillsByStatusOfPayment(paidOut, skip, limit)
+    const result = await billsService.getBillsByStatusOfPayment(user, paidOut, skip, limit)
 
     res.status(200).send(result)
   } catch (error) {
