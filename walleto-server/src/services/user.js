@@ -79,7 +79,27 @@ class UserService {
       return Response.Error(error)
     }
   }
+
+  async editDepositedCash(id, amount) {
+    try {
+      const existsUser = await this.userRepository.findUserById(id)
+
+      if (existsUser.length > 0) {
+        const total = existsUser[0].depositedMoney + amount
+        const result = await this.userRepository.removeCash(id, total)
+        return Response.Created(result, 'Cartão deletado com sucesso')
+      }
+      else {
+        return Response.Error(mountErrorNotExistsUser())
+      }
+    }
+    catch (error) {
+      console.error(`[UserService - getDepositedCash] ${error.message}`)
+    }
+
+  }
 }
+
 
 function mountErrorExistsCard() {
   return {

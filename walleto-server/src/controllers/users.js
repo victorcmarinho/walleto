@@ -47,3 +47,16 @@ export async function deleteBankCard(req, res, next) {
   }
 }
 
+export async function editDepositedCash(req, res, next) {
+  try {
+    const { id, total } = req.query;
+
+    const result = await userService.editDepositedCash(id, total)
+
+    res.status(201).send(result)
+  }
+  catch (error) {
+    res.status(500).send(error)
+  }
+}
+
