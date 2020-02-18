@@ -25,6 +25,12 @@ export async function getBillsByStatusOfPayment (req, res, next) {
 }
 
 export async function createUnpaidBill (req, res, next) {
-  
+  try {
+    const result = await billsService.createUnpaidBill(req.body)
+
+    res.status(200).send(result)
+  } catch (error) {
+    res.status(500).send(error)
+  } 
 }
 

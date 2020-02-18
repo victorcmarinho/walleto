@@ -4,9 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel -d ./build ./src -s",
+    "build": "npm run clean && npm run build-babel",
+    "start": "npm run build && node ./build/server.js",
     "dev": "nodemon --exec babel-node ./src/server.js"
   },
-  "keywords": [],
+  "keywords": [
+    "walleto",
+    "server",
+    "nodejs",
+    "heroku"
+  ],
+  "repository": {
+    "url": "https://github.com/victorcmarinho/walleto/tree/master/walleto-server"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -31,5 +43,8 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-0": "^6.24.1"
+  },
+  "engines": {
+    "node": "12.x"
   }
 }

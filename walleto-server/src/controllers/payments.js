@@ -12,7 +12,7 @@ export async function generateBillet (req, res, next) {
 
 export async function payBillsByBillet (req, res, next) {
   try {
-
+    
   }
   catch (error) {
     res.status(500).send(error)

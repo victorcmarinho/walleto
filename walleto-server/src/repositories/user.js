@@ -40,6 +40,29 @@ class UserRepository {
       return err
     }
   }
+
+  async findUserById(id) {
+    try {
+      const response = await this.schema.find({ _id: id })
+      
+      return response
+    } catch (err) {
+      console.error(`[UserRepository - findUserByEmail] ${err.message}`)
+      return err
+    }
+  }
+
+  async addBankCard(data, id) {
+    try {
+      const response = await this.schema.update({ _id: id}, data)
+
+      return response
+    }
+    catch (err) {
+      console.error(`[UserRepository - addBankCard] ${err.message}`)
+      return err
+    }
+  }
 }
 
 export default UserRepository

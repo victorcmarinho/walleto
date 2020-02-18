@@ -6,7 +6,7 @@ class BillsRepository {
     this.schema = new mongoose.model('bills')
   }
 
-  async sign (data) {
+  async createUnpaidBill (data) {
     try {
       const model = new this.schema(data)
 
@@ -14,7 +14,7 @@ class BillsRepository {
 
       return response
     } catch (err) {
-      console.error(`[UserRepository - sign] ${err.message}`)
+      console.error(`[BillsRepository - createUnpaidBill] ${err.message}`)
       return err
     }
   }

@@ -1,3 +1,4 @@
+import mongoose from 'mongoose'
 import { Response, EmailValidator } from '../helpers'
 
 class UserService {
@@ -34,8 +35,65 @@ class UserService {
       return Response.Error(error)
     }
   }
+
+  async addBankCard(body) {
+    try {
+      const data = mountBodyToModelBankCard(body)
+      
+      const existsUser = await this.userRepository.findUserById(body.id)
+      
+      if (existsUser.length > 0) {
+        let existsCard = bankCardExists(existsUser.bankCards, data.cardNumber)
+        
+        if (existsCard)
+          return Response.Error(mountErrorExistsCard())
+
+        existsUser.bankCards.push(data)
+        const result = await this.userRepository.addBankCard(existsUser, body.id)
+
+        return Response.Created(result, 'Cartão cadastrado com sucesso')
+      }
+      else {
+        return Response.Error(mountErrorNotExistsUser())
+      }
+    } catch (error) {
+      console.error(`[UserService - addBankCard] ${error.message}`)
+      return Response.Error(error)
+    }
+  }
+
+  async deleteBankCard(user, id) {
+    try {
+      const existsUser = await this.userRepository.findUserById(user)
+      
+      if (existsUser.length > 0) {
+        const result = await this.userRepository.deleteBankCard(id)
+
+        return Response.Created(result, 'Cartão deletado com sucesso')
+      }
+      else {
+        return Response.Error(mountErrorNotExistsUser())
+      }
+    } catch (error) {
+      console.error(`[UserService - addBankCard] ${error.message}`)
+      return Response.Error(error)
+    }
+  }
 }
 
+function mountErrorExistsCard() {
+  return {
+    code: 400,
+    message: 'Cartão já cadastrado'
+  }
+}
+
+function mountErrorNotExistsUser() {
+  return {
+    code: 404,
+    message: 'Usuário não cadastrado'
+  }
+}
 function mountErrorExistsUser() {
   return {
     code: 400,
@@ -57,21 +115,50 @@ function mountErrorInvalidEmail() {
   }
 }
 
-function mountBodyToModel (data) {
+function bankCardExists(bankCards, cardNumber) {
+  if (bankCards.length == 0)
+    return false
+
+  bankCards.forEach(element => {
+    if (element.cardNumber === cardNumber)
+      return true
+  });
+}
+
+function mountBodyToModelBankCard (data) {
   return {
+    card: new mongoose.mongo.ObjectId(),
+    name: data.name,
+    bankName: data.bankName,
+    cardNumber: data.cardNumber,
+    flag: data.flag,
+    dueDate: data.dueDate,
+    securityNumber: data.securityNumber
+  }
+}
+
+function mountBodyToModel (data) {
+  let result = {
     name: data.name,
     cpf: data.cpf,
     email: data.email,
     password: data.password,
     birthday: Date(data.birthday),
+    motherName: data.motherName,
+    image: data.image,
     address: {
       zipcode: data.address.zipcode,
       street: data.address.street,
       neighborhood: data.address.neighborhood,
       number: data.address.number,
       complement: data.address.complement
-    }
+    },
   }
+
+  if (!result.image || result.image == null || result.image == undefined)
+    delete result.image
+
+  return result
 }
 
 export default UserService

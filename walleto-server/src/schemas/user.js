@@ -17,6 +17,7 @@ const userSchema = mongoose.Schema({
     complement: { type: String, required: false }
   },
   bankCards: [{
+    cardId: { type: mongoose.Schema.Types.ObjectId, required: false},
     name: { type: String, required: false },
     bankName: { type: String, required: false },
     cardNumber: { type: String, required: false },

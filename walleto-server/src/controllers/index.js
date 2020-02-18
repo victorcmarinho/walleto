@@ -1,6 +1,12 @@
-import { sign, login } from './users'
+import { sign, login, addBankCard, deleteBankCard } from './users'
+import { getAllBills, getBillsByStatusOfPayment, createUnpaidBill } from './bills'
 
 export {
   sign,
-  login
+  login,
+  addBankCard,
+  deleteBankCard,
+  getAllBills,
+  getBillsByStatusOfPayment,
+  createUnpaidBill
 }
