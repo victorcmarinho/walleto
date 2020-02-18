@@ -38,11 +38,11 @@ class BillsService {
 
   async createUnpaidBill (body) {
     try {
-      const data = mountBodyToModel(body)
+      const data = mountBillToUser(body)
       
       const existsUser = await this.userRepository.findUserById(data.user)
       
-      if (existsUser.length > 0) 
+      if (existsUser.length == 0) 
         return Response.Error(mountErrorExistsUser())
 
       const result = await this.billsRepository.createUnpaidBill(data)
@@ -100,7 +100,7 @@ function mountErrorNotExistsBills() {
 
 function mountBillToUser(data, user) {
   let result = {
-    user: user,
+    user: user ? user : data.user,
     name: data.name,
     description: data.description,
     storeCnpj: data.storeCnpj,
@@ -120,6 +120,9 @@ function mountBillToUser(data, user) {
 
   if (!result.discount || result.discount == null || result.discount == undefined)
     delete result.discount
+
+  if (!result.billetInfo || result.billetInfo == null || result.billetInfo == undefined)
+    delete result.billetInfo
 
   return result
 }

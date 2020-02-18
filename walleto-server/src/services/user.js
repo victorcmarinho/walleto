@@ -29,7 +29,7 @@ class UserService {
 
       const result = await this.userRepository.sign(data)
 
-      return Response.Created(result, 'Usuário cadastrado com sucesso')
+      return Response.Created(existsUser, 'Usuário cadastrado com sucesso')
     } catch (error) {
       console.error(`[UserService - sign] ${error.message}`)
       return Response.Error(error)

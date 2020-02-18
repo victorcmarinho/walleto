@@ -1,5 +1,6 @@
 import mongoose from 'mongoose'
 import BillsSchema from '../schemas'
+const ObjectId = mongoose.Types.ObjectId
 
 class BillsRepository {
   constructor () {
@@ -21,7 +22,7 @@ class BillsRepository {
   
   async findBillsToPay(user, bills) {
     try {
-      const response = await this.schema.find({ user: user, _id: { '$in': bills } })
+      const response = await this.schema.find({ user: ObjectId(user), _id: { '$in': ObjectId(bills) } })
 
       return response
     } catch (err) {
@@ -32,7 +33,7 @@ class BillsRepository {
 
   async editPaidBillsByCode(bill) {
     try {
-      const response = await this.schema.update({ _id: bill }, { paidOut: true, paidOutDate: Date.now })
+      const response = await this.schema.update({ _id: ObjectId(bill) }, { paidOut: true, paidOutDate: Date.now })
 
       return response
     } catch (err) {
@@ -43,7 +44,7 @@ class BillsRepository {
 
   async getBillsByStatusOfPayment(user, paidOut, skip, limit) {
     try {
-      const response = await this.schema.find({ user, paidOut }).skip(skip).limit(limit)
+      const response = await this.schema.find({ user: ObjectId(user), paidOut }).skip(skip).limit(limit)
 
       return response
     }
@@ -55,7 +56,7 @@ class BillsRepository {
 
   async getAllBills (id, skip, limit) {
     try {
-      const response = await this.schema.find({ user: id }).skip(skip).limit(limit)
+      const response = await this.schema.find({ user: ObjectId(user) }).skip(skip).limit(limit)
 
       return response
     }

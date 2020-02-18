@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 import UserSchema from '../schemas'
-
+const ObjectId = mongoose.Types.ObjectId
 class UserRepository {
   constructor () {
     this.schema = new mongoose.model('users')
@@ -43,7 +43,7 @@ class UserRepository {
 
   async findUserById(id) {
     try {
-      const response = await this.schema.find({ _id: id })
+      const response = await this.schema.find({ _id: ObjectId(id) })
       
       return response
     } catch (err) {
@@ -65,7 +65,7 @@ class UserRepository {
 
   async addBankCard(data, id) {
     try {
-      const response = await this.schema.update({ _id: id}, data)
+      const response = await this.schema.update({ _id: ObjectId(id)}, data)
 
       return response
     }
