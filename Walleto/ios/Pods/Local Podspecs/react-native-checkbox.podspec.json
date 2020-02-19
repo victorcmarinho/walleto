@@ -1,0 +1,23 @@
+{
+  "name": "react-native-checkbox",
+  "version": "0.3.0",
+  "summary": "React Native Checkbox native modules for Android",
+  "license": "MIT",
+  "authors": "Nicholas Lee <nicholaslee119@gmail.com>",
+  "homepage": "https://github.com/react-native-community/react-native-checkbox#readme",
+  "description": "React Native Checkbox native modules for Android",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/react-native-community/react-native-checkbox.git",
+    "tag": "master"
+  },
+  "source_files": "ios/RNCReactNativeCheckbox/**/*.{h,m}",
+  "requires_arc": true,
+  "dependencies": {
+    "React": [
+
+    ]
+  }
+}
