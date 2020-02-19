@@ -87,7 +87,7 @@ class UserService {
       if (existsUser.length > 0) {
         const total = existsUser[0].depositedMoney + amount
         const result = await this.userRepository.removeCash(id, total)
-        return Response.Created(result, 'Cartão deletado com sucesso')
+        return Response.Created(result, 'Depósito adicionado com sucesso')
       }
       else {
         return Response.Error(mountErrorNotExistsUser())

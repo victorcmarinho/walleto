@@ -43,7 +43,7 @@ class UserRepository {
 
   async findUserById(id) {
     try {
-      const response = await this.schema.find({ _id: ObjectId(id) })
+      const response = await this.schema.find({ _id: ObjectId(id) || id })
       
       return response
     } catch (err) {
@@ -65,7 +65,7 @@ class UserRepository {
 
   async addBankCard(data, id) {
     try {
-      const response = await this.schema.update({ _id: ObjectId(id)}, data)
+      const response = await this.schema.update({ _id: ObjectId(id) || id }, data)
 
       return response
     }
