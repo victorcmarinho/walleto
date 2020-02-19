@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1581811292009,
+  "timestamp": 1582073020248,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -10,14 +10,13 @@
       "urls": [
         "/favicon.ico",
         "/index.html",
-        "/main-es2015.d7b96cd628936ed90d44.js",
-        "/main-es5.d7b96cd628936ed90d44.js",
-        "/manifest.webmanifest",
+        "/main-es2015.6136d834ec6cd39e7ca9.js",
+        "/main-es5.6136d834ec6cd39e7ca9.js",
         "/polyfills-es2015.442fa3cc45520cc0d518.js",
         "/polyfills-es5.abdd41dcd206a6689f72.js",
         "/runtime-es2015.0811dcefd377500b5b1a.js",
         "/runtime-es5.0811dcefd377500b5b1a.js",
-        "/styles.0e4338761429b4eb16ac.css"
+        "/styles.f0bfc2cee3068d208b93.css"
       ],
       "patterns": []
     },
@@ -26,6 +25,7 @@
       "installMode": "lazy",
       "updateMode": "prefetch",
       "urls": [
+        "/Upload.e4837ff1cfa76e0fe8f1.png",
         "/assets/icons/Walleto.png",
         "/assets/icons/Walleto2.png",
         "/assets/icons/android-icon-144x144.png",
@@ -51,13 +51,17 @@
         "/assets/icons/ms-icon-144x144.png",
         "/assets/icons/ms-icon-150x150.png",
         "/assets/icons/ms-icon-310x310.png",
-        "/assets/icons/ms-icon-70x70.png"
+        "/assets/icons/ms-icon-70x70.png",
+        "/assets/imgs/Loja.png",
+        "/assets/imgs/Upload.png",
+        "/assets/imgs/Walleto.png"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
+    "/Upload.e4837ff1cfa76e0fe8f1.png": "676814e1a530e2a90d33ecfaebfdef4aace89de3",
     "/assets/icons/Walleto.png": "927661d230d2da8de7bf06b69782968144d01406",
     "/assets/icons/Walleto2.png": "640600b017364c988f7f3735a743cd45f381f521",
     "/assets/icons/android-icon-144x144.png": "07e364bf4bfdca3208e90e8be1e5d10a6ac8355d",
@@ -84,16 +88,18 @@
     "/assets/icons/ms-icon-150x150.png": "d558d944bae00bfea8f1f1550741e4eb95e6243b",
     "/assets/icons/ms-icon-310x310.png": "27af73c20933a311492dbc54d9fda4187b0c34b3",
     "/assets/icons/ms-icon-70x70.png": "03105c9b67b1cb60aa03f9b6ab3f227acd060c29",
+    "/assets/imgs/Loja.png": "4db01c7722a82c59479dad11fbf301ede9b0d4d4",
+    "/assets/imgs/Upload.png": "676814e1a530e2a90d33ecfaebfdef4aace89de3",
+    "/assets/imgs/Walleto.png": "df6a3c77c62cc2d3737de14cfa769c8ad2016901",
     "/favicon.ico": "a0031f45b569c0b064051191fc2896987133bcbc",
-    "/index.html": "8d4877f862ebd904432e52b31def2333eefbf715",
-    "/main-es2015.d7b96cd628936ed90d44.js": "f6a656bb4bc7d634ca0bbc6bf45336b8b62fd71d",
-    "/main-es5.d7b96cd628936ed90d44.js": "5fc9674e498c6a620d0aa918d9ea032684d68c3e",
-    "/manifest.webmanifest": "7a1250af9aca878233dfd2c457af7262b1bb902e",
+    "/index.html": "61c4d50991950feb38895ef2e885db587dff52ed",
+    "/main-es2015.6136d834ec6cd39e7ca9.js": "e3b59d8c3836d3c192766ac0fd78094a11a8a1e3",
+    "/main-es5.6136d834ec6cd39e7ca9.js": "606b4a1da8c1922b34ea39d9e548cb4f1db7f77a",
     "/polyfills-es2015.442fa3cc45520cc0d518.js": "8779ed8d9bf0580e1b50b352a9b8fd520be24433",
     "/polyfills-es5.abdd41dcd206a6689f72.js": "8d03638471d7374e81cf33adfdea439f84ac3873",
     "/runtime-es2015.0811dcefd377500b5b1a.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "/runtime-es5.0811dcefd377500b5b1a.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/styles.0e4338761429b4eb16ac.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+    "/styles.f0bfc2cee3068d208b93.css": "65b93e7ed171279db22a9212d3d47e73645990c8"
   },
   "navigationUrls": [
     {
