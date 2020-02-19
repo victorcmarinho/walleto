@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "clean": "rmdir -rf build && mkdir build",
-    "build-babel": "babel -d ./build ./src -s",
+    "build-babel": "babel -d ../build ../src -s",
     "build": "npm run build-babel",
-    "start": "npm run build && node ./build/server.js",
+    "start": "npm run build && node ../build/server.js",
     "dev": "nodemon --exec babel-node ./src/server.js"
   },
   "keywords": [
