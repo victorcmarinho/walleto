@@ -30,7 +30,8 @@ export async function getBillsByStatusOfPaymentMock (req, res, next) {
   try {
     let result = {}
     
-    if (req.body.length > 0 && Object.keys(obj).length !== 0 && obj.constructor !== Object) {      
+    if (req.body.length > 0) {    
+      console.log('ENTREI AQUI')  
       result = mountMockFalse(req.body)
     }
     else {
@@ -67,9 +68,9 @@ export async function sendBillsToUser(req, res, next) {
 function mountMockFalse(id) {
   var result = mockResult()
 
-  id.map(s => {
-    result.map(r => {
-      if (r.id = s)
+  id.forEach(s => {
+    result.forEach(r => {
+      if (r.id === s.id)
         r.isPaid = true
     })    
   })
