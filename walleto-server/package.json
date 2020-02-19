@@ -30,9 +30,7 @@
     "express": "^4.17.1",
     "helmet": "^3.21.2",
     "mongoose": "^5.9.1",
-    "morgan": "^1.9.1"
-  },
-  "devDependencies": {
+    "morgan": "^1.9.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.6",
