@@ -287,7 +287,7 @@ var UserService = function () {
 
               case 8:
                 result = _context5.sent;
-                return _context5.abrupt('return', _helpers.Response.Created(result, 'Cartão deletado com sucesso'));
+                return _context5.abrupt('return', _helpers.Response.Created(result, 'Depósito adicionado com sucesso'));
 
               case 12:
                 return _context5.abrupt('return', _helpers.Response.Error(mountErrorNotExistsUser()));

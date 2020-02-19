@@ -15,6 +15,7 @@ function setupRoutes(app) {
   app.put('/users/addBankCard', _controllers.addBankCard);
   app.put('/users/editDepositedCash', _controllers.editDepositedCash);
   app.delete('/users/deleteBankCard', _controllers.deleteBankCard), app.get('/bills/getAllBills', _controllers.getAllBills);
+  app.post('/bills/getBillsByStatusOfPaymentMock', _controllers.getBillsByStatusOfPaymentMock);
   app.get('/bills/getBillsByStatusOfPayment', _controllers.getBillsByStatusOfPayment);
   app.post('/bills/createUnpaidBill', _controllers.createUnpaidBill);
   app.post('/bills/sendBillsToUser', _controllers.sendBillsToUser);

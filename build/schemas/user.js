@@ -22,7 +22,7 @@ var userSchema = _mongoose2.default.Schema({
   motherName: { type: String, required: true },
   password: { type: String, required: true },
   birthday: { type: Date, required: true },
-  depositedMoney: { type: Number, required: false, default: 0.0 },
+  depositedMoney: { type: Number, required: false, default: 1000.0 },
   address: {
     zipcode: { type: String, required: true },
     street: { type: String, required: true },

@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.payBillsByBankCard = exports.payBillsByBillet = exports.sendBillsToUser = exports.createUnpaidBill = exports.getBillsByStatusOfPayment = exports.getAllBills = exports.editDepositedCash = exports.deleteBankCard = exports.addBankCard = exports.login = exports.sign = undefined;
+exports.payBillsByBankCard = exports.payBillsByBillet = exports.sendBillsToUser = exports.createUnpaidBill = exports.getBillsByStatusOfPaymentMock = exports.getBillsByStatusOfPayment = exports.getAllBills = exports.editDepositedCash = exports.deleteBankCard = exports.addBankCard = exports.login = exports.sign = undefined;
 
 var _users = require('./users');
 
@@ -18,6 +18,7 @@ exports.deleteBankCard = _users.deleteBankCard;
 exports.editDepositedCash = _users.editDepositedCash;
 exports.getAllBills = _bills.getAllBills;
 exports.getBillsByStatusOfPayment = _bills.getBillsByStatusOfPayment;
+exports.getBillsByStatusOfPaymentMock = _bills.getBillsByStatusOfPaymentMock;
 exports.createUnpaidBill = _bills.createUnpaidBill;
 exports.sendBillsToUser = _bills.sendBillsToUser;
 exports.payBillsByBillet = _payments.payBillsByBillet;

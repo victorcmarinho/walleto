@@ -165,7 +165,7 @@ var UserRepository = function () {
               case 0:
                 _context4.prev = 0;
                 _context4.next = 3;
-                return this.schema.find({ _id: ObjectId(id) });
+                return this.schema.find({ _id: ObjectId(id) || id });
 
               case 3:
                 response = _context4.sent;
@@ -241,7 +241,7 @@ var UserRepository = function () {
               case 0:
                 _context6.prev = 0;
                 _context6.next = 3;
-                return this.schema.update({ _id: ObjectId(id) }, data);
+                return this.schema.update({ _id: ObjectId(id) || id }, data);
 
               case 3:
                 response = _context6.sent;
